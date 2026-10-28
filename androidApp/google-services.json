@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "322623459821",
+    "project_id": "punts-en-linea",
+    "storage_bucket": "punts-en-linea.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:322623459821:android:7c808680b84a2c9be297e4",
+        "android_client_info": {
+          "package_name": "com.maasbodev.puntsenlinea"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC2cXedgwQRpD3s0ynWy-Mr5j76tqswGPU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

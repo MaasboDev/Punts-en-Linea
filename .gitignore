@@ -1,0 +1,71 @@
+# ==============================================================================
+# Kotlin & Gradle
+# ==============================================================================
+.kotlin/
+.gradle/
+**/build/
+!src/**/build/
+
+# Ignore Gradle wrapper JAR only if you don't commit the wrapper (usually keep it committed)
+# !gradle/wrapper/gradle-wrapper.jar
+
+# ==============================================================================
+# Android & IntelliJ / Android Studio / Fleet
+# ==============================================================================
+local.properties
+*.iml
+*.ipr
+*.iws
+.idea/
+.fleet/
+captures/
+.navigation/
+.externalNativeBuild/
+.cxx/
+
+# Signing & Secrets (uncomment if not managed in a separate secure repo)
+*.jks
+*.keystore
+# google-services.json
+# GoogleService-Info.plist
+
+# ==============================================================================
+# iOS / Xcode / Swift Package Manager / CocoaPods
+# ==============================================================================
+# User-specific Xcode state
+xcuserdata/
+*.xcuserdatad/
+**/xcshareddata/WorkspaceSettings.xcsettings
+UserInterfaceState.xcuserstate
+
+# Xcode build & derived data
+DerivedData/
+*.moved-aside
+*.pbxuser
+!default.pbxuser
+*.mode1v3
+!default.mode1v3
+*.mode2v3
+!default.mode2v3
+*.perspectivev3
+!default.perspectivev3
+*.hmap
+*.ipa
+*.dSYM.zip
+*.dSYM
+
+# Swift Package Manager
+.swiftpm/
+.build/
+iosApp/Packages/
+
+# CocoaPods (if used alongside KMP)
+Pods/
+
+# ==============================================================================
+# macOS / OS General
+# ==============================================================================
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
