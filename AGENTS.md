@@ -138,6 +138,9 @@ All versions and dependencies are centralized in [`gradle/libs.versions.toml`](g
 
 ## Development Conventions & Guidelines
 
+0. **Project Constitution & Active Spec**:
+   - Read [`docs/constitution.md`](docs/constitution.md) and the active spec (`specs/NNN-*/`) before touching any code.
+   - All work must strictly adhere to the 6 non-negotiable principles in [`docs/constitution.md`](docs/constitution.md) (Stack Simplicity, Spec-Driven Code, Logic–UI Separation, Zero-Dependency Testing, User Data Protection, and Language Discipline).
 1. **Dependency Management**:
    - Always declare new dependency versions and libraries in [`gradle/libs.versions.toml`](gradle/libs.versions.toml) and reference them via the `libs.*` version catalog accessor in `build.gradle.kts`.
 2. **AGP KMP Library Plugin**:
