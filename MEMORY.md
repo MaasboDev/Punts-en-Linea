@@ -5,7 +5,7 @@ Project record across sessions. Maximum ~50 lines: summarize or remove content t
 - Initial KMP project scaffolding in place (`:sharedLogic`, `:sharedUI`, `:androidApp`, and `iosApp`).
 - Firebase configurations (`google-services.json`, `GoogleService-Info.plist`) and iOS SPM dependencies (`FirebaseAuth`, `FirebaseFirestore`, `FirebaseAnalytics`, `FirebaseCrashlytics`) added.
 - Project rules, domain specifications, design tokens, and `MEMORY.md` workflow defined in `AGENTS.md`, governed by `docs/constitution.md` and active feature specs (`specs/NNN-*/`).
-- Custom `/planning` skill configured at `.agents/skills/planning/SKILL.md` (accepting `$ARGUMENTS` / inline feature description after `/planning`) for read-only feature planning with interactive plan artifacts.
+- Custom `/planning` and Spec-Driven Development (`sdd`, `/sdd-constitution`, `/sdd-spec`, `/sdd-clarify`, `/sdd-plan`, `/sdd-tasks`, `/sdd-implement`, `/sdd-validate`, `/sdd-change`, `/sdd-status`) skills configured under `.agents/skills/` with explicit Plan vs. Build mode guards and KMP Gradle test commands.
 - Project-scoped MCP servers (`firebase-mcp-server`, `github-mcp-server`, `context7`) configured via workspace plugin at `.agents/plugins/punts-en-linea-mcp/` (`**/mcp_config.json` gitignored).
 
 ## Decisions (and rationale)
@@ -17,7 +17,7 @@ Project record across sessions. Maximum ~50 lines: summarize or remove content t
 
 ## Lessons learned and pitfalls to avoid
 - `:sharedLogic` and `:sharedUI` use AGP's `com.android.kotlin.multiplatform.library` plugin (`android { ... }` inside `kotlin { ... }`), not the legacy `com.android.library` plugin.
-- Custom slash commands in Antigravity must be placed in `.agents/skills/<name>/SKILL.md` with `name` and `description` frontmatter (not `.antigravity/commands/`).
+- Custom slash commands in Antigravity must be placed in `.agents/skills/<name>/SKILL.md` with `name` and `description` frontmatter (quote single-line descriptions containing `: ` or use indented `>-` for multi-line descriptions); Plan vs. Build mode is enforced via explicit tool/write guard sections in the `SKILL.md` body.
 - Workspace-level MCP configs in Antigravity must live inside a plugin (`.agents/plugins/<name>/mcp_config.json` + `plugin.json`), and `context7` should use stdio (`npx -y @upstash/context7-mcp --api-key ...`) since `mcp_config.json` HTTP entries do not forward custom `headers`.
 
 ## Next steps
