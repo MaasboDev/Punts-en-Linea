@@ -5,7 +5,7 @@ Project record across sessions. Maximum ~50 lines: summarize or remove content t
 - Initial KMP project scaffolding in place (`:sharedLogic`, `:sharedUI`, `:androidApp`, and `iosApp`).
 - Firebase configurations (`google-services.json`, `GoogleService-Info.plist`) and iOS SPM dependencies (`FirebaseAuth`, `FirebaseFirestore`, `FirebaseAnalytics`, `FirebaseCrashlytics`) added.
 - Project rules, domain specifications, design tokens, and `MEMORY.md` workflow defined in `AGENTS.md`, governed by `docs/constitution.md` and active feature specs (`specs/NNN-*/`).
-- Custom `/planning` and Spec-Driven Development (`sdd`, `/sdd-constitution`, `/sdd-spec`, `/sdd-clarify`, `/sdd-plan`, `/sdd-tasks`, `/sdd-implement`, `/sdd-validate`, `/sdd-change`, `/sdd-status`) skills configured under `.agents/skills/` with explicit Plan vs. Build mode guards and KMP Gradle test commands.
+- Custom `/planning`, `/coordinator`, and Spec-Driven Development (`sdd`, `/sdd-constitution`, `/sdd-spec`, `/sdd-clarify`, `/sdd-plan`, `/sdd-tasks`, `/sdd-implement`, `/sdd-validate`, `/sdd-change`, `/sdd-status`) skills under `.agents/skills/` and SDD subagents (`planner`, `implementer`, `reviewer` in `.agents/agents/`) configured with KMP Gradle test commands.
 - Project-scoped MCP servers (`firebase-mcp-server`, `github-mcp-server`, `context7`) configured via workspace plugin at `.agents/plugins/punts-en-linea-mcp/` (`**/mcp_config.json` gitignored).
 
 ## Decisions (and rationale)
