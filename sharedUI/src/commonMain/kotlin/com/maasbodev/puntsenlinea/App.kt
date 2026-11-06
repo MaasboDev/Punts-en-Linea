@@ -20,11 +20,17 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.maasbodev.puntsenlinea.telemetry.data.TelemetryRegistry
+import com.maasbodev.puntsenlinea.telemetry.domain.TelemetryCoordinator
 import org.jetbrains.compose.resources.painterResource
+import org.jetbrains.compose.resources.stringResource
 
 import puntsenlinea.sharedui.generated.resources.Res
+import puntsenlinea.sharedui.generated.resources.brand_logo_content_description
+import puntsenlinea.sharedui.generated.resources.greeting_prefix
 import puntsenlinea.sharedui.generated.resources.ic_logo_dark
 import puntsenlinea.sharedui.generated.resources.ic_logo_light
+import puntsenlinea.sharedui.generated.resources.toggle_content_button
 
 private val LightColorScheme = lightColorScheme(
     primary = Color(0xFFB57850),
@@ -60,9 +66,25 @@ private val DarkColorScheme = darkColorScheme(
     outline = Color(0xFF4D443E),
 )
 
+internal const val MAIN_SCREEN_NAME = "main_screen"
+internal const val MAIN_SCREEN_CLASS = "App"
+
+internal fun onMainScreenDisplayed(telemetry: TelemetryCoordinator) {
+    telemetry.logScreenView(
+        screenName = MAIN_SCREEN_NAME,
+        screenClass = MAIN_SCREEN_CLASS
+    )
+}
+
 @Composable
 @Preview
-fun App() {
+fun App(
+    telemetry: TelemetryCoordinator = TelemetryRegistry.coordinator
+) {
+    LaunchedEffect(telemetry) {
+        onMainScreenDisplayed(telemetry)
+    }
+
     val isDark = isSystemInDarkTheme()
     MaterialTheme(
         colorScheme = if (isDark) DarkColorScheme else LightColorScheme
@@ -77,7 +99,7 @@ fun App() {
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
             Button(onClick = { showContent = !showContent }) {
-                Text("Click me!")
+                Text(text = stringResource(Res.string.toggle_content_button))
             }
             AnimatedVisibility(showContent) {
                 val greeting = remember { Greeting().greet() }
@@ -87,11 +109,11 @@ fun App() {
                 ) {
                     Image(
                         painter = painterResource(logoRes),
-                        contentDescription = null,
+                        contentDescription = stringResource(Res.string.brand_logo_content_description),
                         modifier = Modifier.size(200.dp),
                     )
                     Text(
-                        text = "Compose: $greeting",
+                        text = stringResource(Res.string.greeting_prefix, greeting),
                         color = MaterialTheme.colorScheme.onBackground,
                     )
                 }

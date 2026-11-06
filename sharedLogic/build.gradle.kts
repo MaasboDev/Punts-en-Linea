@@ -33,6 +33,11 @@ kotlin {
     }
     
     sourceSets {
+        androidMain.dependencies {
+            implementation(project.dependencies.platform(libs.firebase.bom))
+            implementation(libs.firebase.analytics)
+            implementation(libs.firebase.crashlytics)
+        }
         commonMain.dependencies {
             // put your Multiplatform dependencies here
         }

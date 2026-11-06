@@ -1,0 +1,57 @@
+{
+  "sourceLanguage" : "ca",
+  "strings" : {
+    "brand_logo_content_description" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Logotip de Punts en Línia"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Logotipo de Punts en Línia"
+          }
+        }
+      }
+    },
+    "greeting_prefix" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Salutacions des de %@"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Saludos desde %@"
+          }
+        }
+      }
+    },
+    "toggle_content_button" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mostra / oculta el contingut"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mostrar / ocultar el contenido"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}

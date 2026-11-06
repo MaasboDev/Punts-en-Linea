@@ -4,8 +4,8 @@
 
 **Punts en Linea** (`PuntsenLinea`) is a **Kotlin Multiplatform (KMP)** nutritional tracking application targeting **Android** and **iOS** under the base package `com.maasbodev.puntsenlinea`.
 
-The project uses a hybrid UI / shared-logic architecture:
-- **Shared Business Logic (`:sharedLogic`)**: Shared across both Android and iOS (`commonMain`, `androidMain`, `iosMain`), exported as `SharedLogic.framework` for iOS. **All domain models, point/weight calculations, validation, and data repositories must reside here.**
+The project follows **Clean Architecture** and **SOLID principles** within a hybrid UI / shared-logic architecture:
+- **Shared Business Logic (`:sharedLogic`)**: Shared across both Android and iOS (`commonMain`, `androidMain`, `iosMain`), exported as `SharedLogic.framework` for iOS. **All domain models, use cases, point/weight calculations, validation, repository interfaces, and data layer implementations must reside here.**
 - **Compose UI (`:sharedUI`)**: Compose Multiplatform UI module (Material 3) consumed by `:androidApp`.
 - **Android App (`:androidApp`)**: Android application entry point (`MainActivity`) hosting Compose UI from `:sharedUI`.
 - **iOS App (`iosApp/`)**: Native SwiftUI application (`iOSApp.swift`, `ContentView.swift`) consuming the `SharedLogic` KMP framework and integrated with Firebase iOS SDKs via Swift Package Manager.
@@ -148,8 +148,10 @@ All versions and dependencies are centralized in [`gradle/libs.versions.toml`](g
 3. **Platform-Specific Code (`expect` / `actual`)**:
    - Place shared abstractions in `sharedLogic/src/commonMain/kotlin/com/maasbodev/puntsenlinea/`.
    - Place platform implementations in `sharedLogic/src/androidMain/kotlin/...` and `sharedLogic/src/iosMain/kotlin/...`.
-4. **UI & Business Logic Separation**:
-   - Keep platform-agnostic business rules, models, and repositories in `:sharedLogic` so both Android (`:sharedUI` / `:androidApp`) and iOS (`iosApp` SwiftUI) can consume them.
+4. **Clean Architecture & SOLID Principles**:
+   - Structure code following **Clean Architecture** with strict layer boundaries (`domain`, `data`, and `presentation` / `ui`) where dependencies point inward toward the domain layer.
+   - Apply **SOLID principles** across all modules: Single Responsibility (focused classes/use cases), Open-Closed, Liskov Substitution, Interface Segregation (lean repository/service contracts in `domain`), and Dependency Inversion (depend on abstractions/interfaces in `domain`, implemented in `data` and injected into presentation/UI).
+   - Keep platform-agnostic business rules, domain models, use cases, and repositories in `:sharedLogic` so both Android (`:sharedUI` / `:androidApp`) and iOS (`iosApp` SwiftUI) remain thin, declarative UI layers.
 5. **Firebase Integration**:
    - Firebase config files exist at `androidApp/google-services.json` and `iosApp/GoogleService-Info.plist`.
    - When adding or modifying Xcode Swift packages or files in `iosApp/iosApp.xcodeproj`, preserve synchronized root groups (`PBXFileSystemSynchronizedRootGroup`) and existing Firebase SPM product dependencies.

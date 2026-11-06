@@ -1,0 +1,5 @@
+<resources>
+    <string name="toggle_content_button">Mostra / oculta el contingut</string>
+    <string name="greeting_prefix">Salutacions des de %1$s</string>
+    <string name="brand_logo_content_description">Logotip de Punts en Línia</string>
+</resources>
